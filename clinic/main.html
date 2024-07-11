@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOMAL ASHRAY</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://wallpapercave.com/wp/wp8003033.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #d76868;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        .navbar h1 {
+            color: white;
+            margin: 0;
+        }
+
+        .navbar p {
+            color: #000000;
+            margin: 0;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #821212;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #243ac9;
+            text-align: center;
+        }
+
+        form {
+            display:center;
+            flex-direction: column;
+        }
+
+        form label, form input, form select, form button {
+            margin: 10px 0;
+        }
+
+        form input, form select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 96%;
+        }
+
+        form button {
+            padding: 10px;
+            border: none;
+            background-color: #1286d3;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: #0b344f;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="https://i.pinimg.com/originals/85/95/f4/8595f4b711e503bc72fe396e5043e0c2.png" alt="clinic Logo">
+            <div>
+                <h1>KOMAL ASHRAY</h1>
+                <p>Your health, Our priority!</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="main.html">Home</a>
+            <a href="record.html">Appointments</a>
+            <a href="#">About Us</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Appointment Form</h2>
+        <form id="libraryForm" action="submit_form.php" method="post">
+            <label for="appointment">Appointment No.</label>
+            <input type="number" id="appointment" name="appointment" required>
+            
+            <label for="patient">Patient Name:</label>
+            <input type="text" id="patient" name="patient" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="doctor">Choose a Specialist:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="">Choose a specialist</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="orthopedist">Orthopedist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="gynecologist">Gynecologist</option>
+            </select>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('libraryForm').addEventListener('submit', function(event) {
+            // Validation for Appointment No.
+            const appointment = document.getElementById('appointment');
+            if (!appointment.value || isNaN(appointment.value) || appointment.value <= 0) {
+                alert('Please enter a valid Appointment No.');
+                appointment.focus();
+                event.preventDefault();
+                return false;
+            }
+
+            // Validation for Patient Name
+            const patient = document.getElementById('patient');
+            if (!patient.value.trim()) {
+                alert('Please enter the patient name.');
+                patient.focus();
+                event.preventDefault();
+                return false;
+            }
+
+            // Validation for Phone Number
+            const phone = document.getElementById('phone');
+            if (!phone.value.trim()) {
+                alert('Please enter the phone number.');
+                phone.focus();
+                event.preventDefault();
+                return false;
+            }
+
+            // Validation for Doctor Selection
+            const doctor = document.getElementById('doctor');
+            if (!doctor.value) {
+                alert('Please choose a specialist.');
+                doctor.focus();
+                event.preventDefault();
+                return false;
+            }
+
+            // Validation for Date
+            const date = document.getElementById('date');
+            if (!date.value) {
+                alert('Please select a date.');
+                date.focus();
+                event.preventDefault();
+                return false;
+            }
+
+            // If all validations pass
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>

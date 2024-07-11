@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://wallpapercave.com/wp/wp8003033.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .login-container {
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(245, 245, 245, 0.8);
+            text-align: center;
+            box-shadow: 0px 0px 10px 0px #000;
+        }
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+            color: #2a6271;
+        }
+        .login-container input[type="text"], .login-container input[type="password"], .login-container select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+        .login-container input[type="checkbox"] {
+            margin: 10px 0;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://i.pinimg.com/originals/85/95/f4/8595f4b711e503bc72fe396e5043e0c2.png" alt="clinic Logo">
+        <h1>KOMAL ASHRAY</h1>
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <select id="doctor" required>
+                <option value="">Choose a specialist</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="orthopedist">Orthopedist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="gynecologist">Gynecologist</option>
+                <option value="radiologist">Radiologist</option>
+            </select>
+            <input type="password" id="password" placeholder="Password" required>
+            <label>
+                <input type="checkbox" onclick="togglePassword()"> Show Password
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById('password');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Redirect to main.html without checking credentials
+            window.location.href = "main.html";
+        });
+    </script>
+</body>
+</html>
